@@ -205,6 +205,33 @@ td.expense {
   color: #e92929;
 }
 
+/* Modal ==========*/
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position: fixed; /* mesmo que mexa a tela com o scroll, ele fica parado */
+  top: 0; /* coloca a caixa preta em toda a tela. ou seja. faz a máscara */
+
+  display: flex;
+  align-items: center;justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #F0F2f5;
+  padding: 2.4rem;
+
+}
+
 /* foooter ===========*/
 footer {
   text-align: center;
