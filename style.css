@@ -96,6 +96,13 @@ h3 {
   color: white;
 }
 
+/* transaction */
+
+#transaction {
+  width: max(45vw, 800px);
+  margin: auto;
+}
+
 /* Table ===========*/
 #data-table {
   width: 100%;
