@@ -142,14 +142,19 @@ header {
 }*/
 
 /* Table ===========*/
-#data-table {
+
+#transaction {
   display: block;
+  width: 100%;
+  overflow-x: auto;
+  /* o display: block, bloqueia a rolagem da tela inteira, e o overflow-x: auto cria a rolagem do eixo x da tabela quando necessário, ou seja, quando a tela estiver maior, a barra de rolagem ai ser criada só para a tabela, e não na página inteira */
+}
+
+#data-table {
   width: 100%;
   border-spacing: 0 0.5rem; /* tirando as bordas da tabela */
   color: #969cb3;
 
-  overflow-x: auto; 
-  /* o display: block, bloqueia a rolagem da tela inteira, e o overflow-x: auto cria a rolagem do eixo x da tabela quando necessário, ou seja, quando a tela estiver maior, a barra de rolagem ai ser criada só para a tabela, e não na página inteira */
 }
 
 table thead tr th:first-child,
