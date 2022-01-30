@@ -4,6 +4,9 @@
 para utilizar a variável coloca ela no local edquado, no caso da cor, avisa que vai passar uma cor e depois colocar var(--nome-da-variavel).*/
 :root {
   --dark-blue: #363f5f;
+  --green: #49AA26;
+  --light-green: #3dd705;
+  --red: #e92929;
 }
 
 * {
@@ -55,22 +58,57 @@ body {
 }*/
 
 
-/* links and buttons */
+/* links and buttons ===========*/
 
 a {
-  color: #49AA26;
+  color: var(--green);
   text-decoration: none; /* tira o underline */
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+
+  color: white;
+  background: var(--green);
+  padding: 0;
+
+  border-radius: 0.25rem;
+  cursor: pointer; /* quando passar o mouse em cima, ele se transforma em uma mãozinha */
+
+}
+
+button:hover {
+  background: var(--light-green)
 }
 
 a:hover {
   /*quando passa o mouse em cima acontece isso*/
-  color: #3dd705;
+  color: var(--light-green);
 
 }
 
-.buttom.new {
+.button.new {
   display: inline-block; /* deixa a parte clicavel do link só até onde o conteúdo vai */
   margin-bottom: 0.8rem;
+}
+
+.button.cancel {
+  color: var(--red);
+  border: 2px var(--red) solid;
+  border-radius: 0.25rem;
+  height: 50px;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.6;
+}
+
+.button.cancel:hover {
+  opacity: 1;
 }
 
 /* header ================== */
@@ -130,7 +168,7 @@ header {
 }
 
 .card.total {
-  background: #49AA26;
+  background: var(--green);
   color: white;
 }
 
@@ -202,7 +240,7 @@ td.income {
 }
 
 td.expense {
-  color: #e92929;
+  color: var(--red);
 }
 
 /* Modal ==========*/
@@ -219,6 +257,8 @@ td.expense {
   opacity: 0;
   visibility: hidden;
 
+  z-index: 999;
+
 }
 
 .modal-overlay.active {
@@ -229,8 +269,49 @@ td.expense {
 .modal {
   background: #F0F2f5;
   padding: 2.4rem;
-
+  width:90%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
 }
+
+/* Form ============== */
+
+#form {
+  max-width: 500px;
+  
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+#form form input {
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;  
+  width: 100%;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+.input-group small {
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
+}
+
 
 /* foooter ===========*/
 footer {
@@ -239,6 +320,7 @@ footer {
   color: var(--dark-blue);
   opacity: 0.6;
 }
+
 
 /* responsive ============= */
 @media (min-width: 800px) {
