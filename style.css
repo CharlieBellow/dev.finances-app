@@ -19,20 +19,20 @@ body {
 }
 
 .container {
-  width: min(90vw, 800px); /* assim deixa responsivo, ele vai procurar o menor entre esses dois valores */
+  /*width: min(90vw, 800px); assim deixa responsivo, ele vai procurar o menor entre esses dois valores*/
 
   margin: auto
 }
 
 /* title ================== */
 
-h2 {
+/*h2 {
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
   color: var(--dark-blue);
 
   font-weight: normal;
-}
+}*/
 
 /* header ================== */
 header {
@@ -41,15 +41,18 @@ header {
   text-align: center
 }
 
-#logo {
+/*#logo {
   color: #fff;
-  font-weight: 100; /* peso da fonte bem fina */
-}
+  font-weight: 100; peso da fonte bem fina
+}*/
 
 /* balance ====================== */
 
 #balance {
   margin-top: -7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #balance h2 {
@@ -60,6 +63,12 @@ header {
 
 /* cards ===============*/
 
+h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .card {
   background: white;
   padding: 1.5rem 2rem;
@@ -67,6 +76,7 @@ header {
 
   margin-bottom: 2rem;
   color: var(--dark-blue);
+  margin: 0.9rem;
 }
 
 .card h3 {
