@@ -226,18 +226,19 @@ const Form = {
 
   submit(event) {
     // trava o botão salvar pra eu testar as funções
+    console.log("submit");
     event.preventDefault();
-
+    
     try {
       Form.validateFields()
       // verificar se todas as informações foram preenchidas.
-  
+      
       const transaction = Form.formatValues()
-  
+      
       // salvar
       Transaction.add(transaction)
-  
-      //apagar os dados do formulrio
+      
+      //apagar os dados do formulario
       Form.clearFields()
       // modal fechar
       Modal.close()
@@ -249,7 +250,6 @@ const Form = {
   }
 
 }
-
 
 
 
@@ -316,3 +316,7 @@ App.init()
     date: '23/01/2021',
   }
 ],*/
+
+// Zé ciço do Tio
+// 1- comentar o que cada função serve
+// 2 - criar mais um card que mostre a quantidade de transações

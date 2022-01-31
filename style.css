@@ -252,7 +252,8 @@ td.expense {
   top: 0; /* coloca a caixa preta em toda a tela. ou seja. faz a máscara */
 
   display: flex;
-  align-items: center;justify-content: center;
+  align-items: center;
+  justify-content: center;
 
   opacity: 0;
   visibility: hidden;
