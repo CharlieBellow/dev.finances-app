@@ -1,0 +1,32 @@
+
+
+[
+  {
+
+    "description": "Luz",
+    "amount": -50001,
+     equivale a 500,00 reaistem que colocar o valor sem as vírgulas pq depois ai ser formatado adequadamente 
+    "date": '23/01/2021',
+  },
+  
+  {
+    
+    description: 'website',
+    amount: 500000,
+    date: '23/01/2021',
+  },
+  
+  {
+    
+    description: 'Internet',
+    amount: -20012,
+    date: '23/01/2021',
+  },
+
+  {
+    
+    description: 'App',
+    amount: 200000,
+    date: '23/01/2021',
+  }
+],*/

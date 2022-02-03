@@ -1,7 +1,7 @@
 /* Global =========== */
 
-/* criando uma variável no CSS pra guardar coisas que vou usar muito.. tipo a cor. nesse caso, usa os : e referencia a tag html com o root e escreve a variável com --nome-da-variavel: valor que quero guardar; 
-para utilizar a variável coloca ela no local edquado, no caso da cor, avisa que vai passar uma cor e depois colocar var(--nome-da-variavel).*/
+/* criando uma variável no CSS pra guardar coisas que vou usar muito.. tipo a cor. nesse caso, usa os : e referencia a tag html com o root e escreve a variável com --nome-da-variável: valor que quero guardar; 
+para utilizar a variável coloca ela no local adequado, no caso da cor, avisa que vai passar uma cor e depois colocar var(--nome-da-variável).*/
 :root {
   --dark-blue: #363f5f;
   --green: #49AA26;
@@ -9,17 +9,20 @@ para utilizar a variável coloca ela no local edquado, no caso da cor, avisa que
   --red: #e92929;
 }
 
+/* tirando a margin e o padding, e atribuindo o border-box para garantir que o elemento vai ter exatamente o mesmo tamanho que definimos sem aumentar o tamanho de acordo com as definições adicionadas  */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* atribuindo o tamanho da fonte do site */
 html {
   font-size: 93.75%; 
   /* equivale a 15px. pq 100% de fonte equivale a 16px  */
 }
 
+/* definindo body com o fundo cinza claro e a fonte montserrat que foi pega no google font e adicionada na tag link do HTML */
 body {
   background: #f0f2f5; /* cinza claro */
   font-family: 'Montserrat',
@@ -27,7 +30,7 @@ body {
 }
 
 .sr-only {
-  /* esses comandos escondem os textos da acessibilidade. lembrando que precisa colocar a classe sr-only nos titulos das sessões */
+  /* esses comandos escondem os textos da acessibilidade. a ideia é ter o titulo ali, mas deixar o leiaute limpo lembrando que precisa colocar a classe sr-only nas tags label das sessões */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -40,6 +43,7 @@ body {
   border-width: 0;
 }
 
+/* ajustando o espaço disponíveis para os cads do balanço */
 .container {
   width: min(90vw, 800px);
   /*assim deixa responsivo, ele vai procurar o menor entre esses dois valores*/
@@ -62,7 +66,7 @@ body {
 
 a {
   color: var(--green);
-  text-decoration: none; /* tira o underline */
+  text-decoration: none; /* tira o underline do link adicionado */
 }
 
 button {
@@ -79,18 +83,20 @@ button {
 
 }
 
+/* quando colocar o muse em cima, o botão fica nessa cor verde clara */
 button:hover {
   background: var(--light-green)
 }
 
 a:hover {
-  /*quando passa o mouse em cima acontece isso*/
+  /*quando passa o mouse em cima fica com essa cor*/
   color: var(--light-green);
 
 }
 
+/* estilizando o botão + Nova Transação (dentro da tag link)  */
 .button.new {
-  display: inline-block; /* deixa a parte clicavel do link só até onde o conteúdo vai */
+  display: inline-block; /* deixa a parte clicável do link só até onde o conteúdo vai */
   margin-bottom: 0.8rem;
 }
 
@@ -107,11 +113,14 @@ a:hover {
   opacity: 0.6;
 }
 
+/* quando o mouse estiver em cima, o botão vai aumentar a opacidade */
+
 .button.cancel:hover {
   opacity: 1;
 }
 
 /* header ================== */
+/* colocando o cabeçalho verde na página */
 header {
   background: #2D4A22;
   padding: 2rem 0 12rem;
@@ -130,7 +139,7 @@ header {
  /* display: flex;
   align-items: center;
   justify-content: center;*/
-  /* tive que tirar o display flex daqu porque se nao as at-rules lá embaixo não iam funcionar para adicionar a responsividade */
+  /* tive que tirar o display flex daqui porque se não as at-rules lá embaixo não iam funcionar para adicionar a responsividade */
 }
 
 #balance h2 {
@@ -140,7 +149,7 @@ header {
 }
 
 /* cards ===============*/
-
+/*colocando a coz azul escuro no título dos cards e definindo o stilo geral dele*/
 .card {
   background: white;
   padding: 1.5rem 2rem;
@@ -151,6 +160,7 @@ header {
   /*margin: 0.9rem;*/
 }
 
+/* estilizando título dos cards e adicionando o display flex para alinhar o texto com a imagem e colocando o space-between para que eles fiquem nas extremidades */
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
@@ -160,6 +170,7 @@ header {
   justify-content: space-between;
 }
 
+/* definindo o estilo dos valores em reais nos cards */
 .card p {
   font-size: 2rem;
   line-height: 3rem; /* separação entre as linhas */
@@ -167,6 +178,7 @@ header {
   margin-top: 1rem;
 }
 
+/* criando um estilo de cor diferente para o total */
 .card.total {
   background: var(--green);
   color: white;
@@ -180,12 +192,12 @@ header {
 }*/
 
 /* Table ===========*/
-
+/*  */
 #transaction {
   display: block;
   width: 100%;
   overflow-x: auto;
-  /* o display: block, bloqueia a rolagem da tela inteira, e o overflow-x: auto cria a rolagem do eixo x da tabela quando necessário, ou seja, quando a tela estiver maior, a barra de rolagem ai ser criada só para a tabela, e não na página inteira */
+  /* o display: block, bloqueia a rolagem da tela inteira, e o overflow-x: auto cria a rolagem do eixo x da tabela quando necessário, ou seja, quando a tela estiver maior, a barra de rolagem vai ser criada só para a tabela, e não na página inteira */
 }
 
 #data-table {
@@ -200,6 +212,7 @@ table tbody tr td:first-child {
   border-radius: 0.25rem 0 0 0.25rem;
 }
 
+/* pegando as linhas da tabela e colocando cantos arredondados nas pontas */
 table thead tr th:last-child,
 table tbody tr td:last-child {
   border-radius: 0.25rem 0.25rem, 0;
@@ -214,7 +227,7 @@ table thead th {
   text-align: left;
 }
 
-/* quando passa o mouse, muda as cores */
+/* quando passa o mouse, muda as cores  =======*/
 table tbody tr {
   opacity: 0.7;
 }
@@ -230,6 +243,7 @@ table tbody td {
   padding: 1rem 2rem;
 }
 
+/* colocando uma fonte diferente pra cada item da tabela */
 td.description {
   color: var(--dark-blue);
 
@@ -244,13 +258,16 @@ td.expense {
 }
 
 /* Modal ==========*/
+
+/* estilizando o modal (tela que aparece quando clica em + Nova Transação) */
 .modal-overlay {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.7); /* criando um fundo preto no entorno da janela */
   position: fixed; /* mesmo que mexa a tela com o scroll, ele fica parado */
   top: 0; /* coloca a caixa preta em toda a tela. ou seja. faz a máscara */
 
+  /* clocando a mascara no centro e colocando a opacidade em zero e escondendo a opacidade. pois quando a classe for só modal-overlay, o modal vai ficar escondido */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,15 +275,17 @@ td.expense {
   opacity: 0;
   visibility: hidden;
 
-  z-index: 999;
+  z-index: 999; /* esse z-index 999 garante que o index vai ser maior que 1 e por isso vai ter prioridade */
 
 }
 
+/* quando o JS adicionar a classe active ao modal (e isso ocorre quando o usuário clica em + Nova Transação) o modal aparece na frente com o formulário para preenchimento da nova transação */
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
+/* estilizando o modal */
 .modal {
   background: #F0F2f5;
   padding: 2.4rem;
@@ -286,7 +305,7 @@ td.expense {
 #form h2 {
   margin-top: 0;
 }
-
+/* estilizando a entrada de dados do form */
 #form form input {
   border: none;
   border-radius: 0.2rem;
@@ -294,6 +313,7 @@ td.expense {
   width: 100%;
 }
 
+/* colocando um espaço extra no topo de cada input pra não ficar muito junto */
 .input-group {
   margin-top: 0.8rem;
 }
@@ -302,12 +322,13 @@ td.expense {
   opacity: 0.4;
 }
 
+/* adicionando o display: flex nos botoes de submissão ou cancelamento do form para deixá-los alinhados */
 .input-group.actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+ /*delimitando a largura dos 2 botões. 48 * 2 = 96%, os outros 4% fazem as margens da borda e entre eles */
 .input-group.actions .button,
 .input-group.actions button {
   width: 48%;
@@ -324,6 +345,8 @@ footer {
 
 
 /* responsive ============= */
+
+/*delimitando o tamanho mínimo da largura da página e dizendo que o tamanho da fonte de todo o site será de 14px = 87.5%  */
 @media (min-width: 800px) {
   html {
     font-size: 87.5%; /* 14px */
@@ -333,6 +356,6 @@ footer {
   #balance {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* divide uma fração pra cada card e deixa eles se ajustarem no espaço que tem */
-    gap: 2rem;
+    gap: 2rem; /* e adiciona esse espaço entre os elementos. isso faz com que seja responsivo */
   }
 }
