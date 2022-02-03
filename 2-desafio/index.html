@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dev.finance</title>
+  <!-- referenciando o arquivo CSS na pasta raiz-->
+  <link rel="stylesheet" href="./style.css">
+  <!-- adicionando a font montserrat do google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,700;1,100;1,400&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+  
+  <header>
+    <!-- adicionando a logo do site no cabeçalho -->
+      <img src="./assets/logo.svg" alt="logo Dev Finance">
+  </header>
+
+  <!-- o main é onde criamos os cards do balanço das transações -->
+  <main class="container">
+    <!-- seção balanço com o id balance -->
+    <section id="balance">
+      <h2 class="sr-only">Balanço</h2> <!-- essa classe deixa ele só como leitura para os leitores de tela conseguirem ler. (acessibilidade) -->
+<!-- 3 cards: entrada, saída e total - separados por divs  -->
+      <div class="card">
+        <h3>
+          <span> <!-- a tag span coloca os elementos em linha -->
+            Entradas
+          </span> 
+          <img src="./assets/income.svg" alt="entradas">
+        </h3>
+        <p id="incomeDisplay">R$ 0,00</p> <!-- adicionando o id que vai ser referenciado no JS e no css pra fazer o calculo das entradas -->
+      </div>
+
+      <div class="card">
+        <h3>
+          <span>
+            Saídas
+          </span>
+          <img src="./assets/expense.svg" alt="saídas">
+        </h3>
+        <p id="expenseDisplay">R$ 0,00</p>
+      </div>
+
+      <div class="card total">
+        <h3>
+          <span>
+            Total
+          </span>
+          <img src="./assets/total.svg" alt="total">
+        </h3>
+        <p id="totalDisplay">R$ 0,00</p>
+      </div>
+
+      <div class="card classtransactions">
+        <h3>
+          <span>
+            Transações:
+          </span>
+          <img src="./assets/plus.svg" alt="número de transações">
+        </h3>
+        <p id="idtransactions" numberTransactions()>0</p>
+    </div>
+
+    </section>
+
+
+<!-- segunda sessão - é onde fica a tabela de transações -->
+    <section id="transaction">
+
+      <h2 class="sr-only">Transações</h2> <!--geralmente a seção começa com h2-->
+
+      <!-- adicionando a função onclick pra quando o usuário clicar em + Nova Transação, vai abrir a janela modal -->
+      <a href="#" 
+      onclick="Modal.open()"
+      class="buttom new">+ Nova Transação</a> <!-- fazendo assim com a # você não precisa sair da página ao colocar esse link -->
+
+<!-- essa tabela mostra a transação adicionada na tela -->
+      <table id="data-table">
+        <thead>
+          <tr> <!-- linha -->
+            <th>Descrição</th> <!-- coluna -->
+            <th>Valor</th>
+            <th>Data</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- essas linhas e colunas dentro do tbody será feita automaticamente pelo JS quando o usuário criar uma nova transação-->
+          <!--<tr>
+            <td class="descripton">Luz</td>
+            <td class="expense">- R$ 500,00</td>
+            <td class="date">23/01/2021</td>
+            <td>
+              <img src="./assets/minus.svg" alt="remover transação">
+            </td>
+          </tr>
+          <tr>
+            <td class="descripton">Criação website</td>
+            <td class="income">R$ 5000,00</td>
+            <td class="date">23/01/2021</td>
+            <td>
+              <img src="./assets/minus.svg" alt="remover transação">
+            </td>
+          </tr>
+          <tr>
+            <td class="descripton">Internet</td>
+            <td class="expense">- R$ 200,00</td>
+            <td class="date">23/01/2021</td>
+            <td>
+              <img src="./assets/minus.svg" alt="remover transação">
+            </td>
+          </tr>-->
+        </tbody>
+      </table>
+    </section>
+    
+  </main>
+
+  <!-- aqui é a caixa que comporta o formulário do modal (a telinha pequena que aparece para iserir uma nova transação) -->
+  <div class="modal-overlay"> <!-- caixa transparente -->
+    <div class="modal"> <!-- caixa branca -->
+      <div id="form"> <!-- conteúdo da caixa branca -->
+        <h2>Nova Transação</h2>
+        <form action=""onsubmit="Form.submit(event)"> <!-- dispara o evento de submissão do fomulário -->
+          <div class="input-group">
+            <label 
+            class="sr-only"
+            for="description">Descrição</label>
+            <input 
+              type="text" 
+              id="description" 
+              name="description" placeholder="Descrição"
+            />
+          </div>
+          
+          <div class="input-group">
+            <label 
+            class="sr-only"
+            for="amount">Valor</label>
+            <input 
+              type="number"
+              step="0.01" 
+              id="amount"
+              name="amount"
+              placeholder="R$ 0,00"
+            />
+            <!-- o step="0,01" vai pular a cada 01 centavo -->
+            <br>
+            <!-- a tag smal deixa o texto pequeno que serve como uma ajuda pra preencher o formulário -->
+            <small class="help">Use o sinal - (negativo) para despesas e, (vírgula) para casas decimais</small>
+          </div>
+          
+          <div class="input-group">
+            <label 
+            class="sr-only"
+            for="date">Data</label>
+            <input 
+              type="date" 
+              id="date" 
+              name="date"
+            />
+          </div>
+         <!-- quando for mudar o títulos das classes é só dar 2 clicks para selecionar a palavra e depois apertar ctrl+D e o vs code já seleciona as próximas palavras iguais para vc editar tudo de uma vez. -->
+
+<!-- quando clicar nno botão cancelar, o modal será fechado -->
+          <div class="input-group actions">
+              <a 
+              onclick="Modal.close()"
+              href="#" 
+              class="button cancel">Cancelar</a>
+              <button>Salvar</button>
+          </div>
+        </form>
+      </div>
+      
+      <!--br>
+      <input type="number" placeholder="R$ 0,00">
+      <br>
+      <p>Use o sinal - (negativo) para despess e, (vírgula) para casas decimais</p>
+      <input type="data" placeholder="dd/mm/yyyy">
+      <br>
+      <span>
+        <buttom>Cancelar</buttom>
+        <buttom>Salvar</buttom>
+      </span>-->
+
+    </div>
+  </div>
+  
+
+  <footer>  <p>2022 - dev.finance$</p></footer>
+<!-- referenciando o arquvo JS da pasta raiz -->
+  <script src="./scripts.js"></script>
+  </body>
+</html>
