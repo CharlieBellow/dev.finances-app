@@ -26,6 +26,17 @@
     <section id="balance">
       <h2 class="sr-only">Balanço</h2> <!-- essa classe deixa ele só como leitura para os leitores de tela conseguirem ler. (acessibilidade) -->
 <!-- 3 cards: entrada, saída e total - separados por divs  -->
+      
+      <div class="card classtransactions">
+        <h3>
+          <span class="transacoes">
+            Transações:
+          </span>
+         <!-- <img src="./assets/plus.svg" alt="número de transações">-->
+        </h3>
+        <p id="idtransactions" onsubmit="innerHTMLCountTransaction()">0</p>
+      </div>
+
       <div class="card">
         <h3>
           <span> <!-- a tag span coloca os elementos em linha -->
@@ -56,15 +67,7 @@
         <p id="totalDisplay">R$ 0,00</p>
       </div>
 
-      <div class="card classtransactions">
-        <h3>
-          <span>
-            Transações:
-          </span>
-          <img src="./assets/plus.svg" alt="número de transações">
-        </h3>
-        <p id="idtransactions" numberTransactions()>0</p>
-    </div>
+     
 
     </section>
 
@@ -151,7 +154,7 @@
             />
             <!-- o step="0,01" vai pular a cada 01 centavo -->
             <br>
-            <!-- a tag smal deixa o texto pequeno que serve como uma ajuda pra preencher o formulário -->
+            <!-- a tag small deixa o texto pequeno que serve como uma ajuda pra preencher o formulário -->
             <small class="help">Use o sinal - (negativo) para despesas e, (vírgula) para casas decimais</small>
           </div>
           

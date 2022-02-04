@@ -170,6 +170,10 @@ header {
   justify-content: space-between;
 }
 
+.card.classtransactions {
+  text-align: center;
+}
+
 /* definindo o estilo dos valores em reais nos cards */
 .card p {
   font-size: 2rem;
@@ -355,7 +359,7 @@ footer {
 
   #balance {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* divide uma fração pra cada card e deixa eles se ajustarem no espaço que tem */
+    grid-template-columns: repeat(1, 0.5fr 1fr 1fr 1fr); /* divide uma fração pra cada card e deixa eles se ajustarem no espaço que tem */
     gap: 1.5rem; /* e adiciona esse espaço entre os elementos. isso faz com que seja responsivo */
   }
 }

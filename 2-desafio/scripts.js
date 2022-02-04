@@ -116,10 +116,6 @@ const Transaction = {
     return Transaction.incomes() + Transaction.expenses();
     // coloca + pq o expense já tá com sinal negativo. 
   }
-
-  numberTransactions() {
-    return Transaction.incomes() + Transaction.expenses();
-  }
 }
 
 // pegar as transações do objeto criado no array transactions e colocar no HTML
@@ -169,13 +165,28 @@ const DOM = {
     return index
   },*/
 
-  innerHTMLCountTransaction(all) {
-    const transactionsIndex = all.length;
-    const transactionsI = document.getElementById("idtransactions").innerHTML = `<p id="idtransactions">${transactionsIndex}</p>`;
-    console.log(transactionsI);
-    return transactionsI;
+  innerHTMLCountTransaction() {
+    const transactionsIndex = Transaction.all.length;
+    document
+      .getElementById("idtransactions")
+      .innerHTML = `<p id="idtransactions">${transactionsIndex}</p>`;
+    console.log(transactionsIndex);
+    return transactionsIndex;
   },
-  
+
+  /*innerHTMLUpdateCountTransaction(index) {
+    const transactionsIndex = index.length;
+      const update = `<p id="idtransactions">${transactionsIndex}</p>`;
+    console.log(transactionsIndex);
+    return update;
+  },
+
+  contaNUmeroTransação() {
+    document
+      .getElementById("idtransactions")
+      .innerHTML = DOM.innerHTMLUpdateCountTransaction(transactionIndex)
+  },*/
+
   innerHTMLTransaction(transaction, index) {
     
     const CSSclass = transaction.amount > 0 ? "income" : "expense"
@@ -320,11 +331,13 @@ const Form = {
     Form.amount.value = ""
     Form.date.value = ""
   },
+
   
   submit(event) {
     // trava o botão salvar pra eu testar as funções
     //console.log("submit");
     event.preventDefault();
+    
     
     try {
       Form.validateFields()
@@ -339,13 +352,20 @@ const Form = {
       Form.clearFields()
       // modal fechar
       Modal.close()
-
+      
     } catch (error) {
       alert(error.message)
     }
+    
+  },
 
+  numberTransactions() {
+    if (Form.submit()) {
+      const numero = Transaction.incomes() + Transaction.expenses()
+      return numero;
+    } 
   }
-
+  
 }
 
 
