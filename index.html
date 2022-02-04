@@ -26,6 +26,16 @@
     <section id="balance">
       <h2 class="sr-only">Balanço</h2> <!-- essa classe deixa ele só como leitura para os leitores de tela conseguirem ler. (acessibilidade) -->
 <!-- 3 cards: entrada, saída e total - separados por divs  -->
+      
+      <div class="card classtransactions"> <!-- adicionando mais um card para contar o número de transações -->
+        <h3>
+          <span>
+           Transações: 
+          </span>
+        </h3>
+        <p id="idtransactions">0</p>
+      </div>
+
       <div class="card">
         <h3>
           <span> <!-- a tag span coloca os elementos em linha -->
@@ -55,7 +65,6 @@
         </h3>
         <p id="totalDisplay">R$ 0,00</p>
       </div>
-
 
     </section>
 

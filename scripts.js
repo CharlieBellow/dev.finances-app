@@ -115,6 +115,11 @@ const Transaction = {
 
     return Transaction.incomes() + Transaction.expenses();
     // coloca + pq o expense já tá com sinal negativo. 
+  },
+
+    // adicionando a função que faz a contagem das transações. só peguei o array e pedi para que ele contasse os elementos dentro dele com o .length
+  count() {
+    return Transaction.all.length
   }
 }
 
@@ -175,6 +180,10 @@ const DOM = {
     
     document.getElementById('totalDisplay')
       .innerHTML = Utils.formatCurrency(Transaction.total())
+    // adicionando a contagem das transações e referenciando no meu HTML
+    document
+      .getElementById("idtransactions")
+      .innerHTML = Transaction.count(); 
   },
 
   clearTransactions() {

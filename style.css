@@ -45,7 +45,7 @@ body {
 
 /* ajustando o espaço disponíveis para os cads do balanço */
 .container {
-  width: min(90vw, 800px);
+  width: min(90vw, 1000px); /* mudei só o px */
   /*assim deixa responsivo, ele vai procurar o menor entre esses dois valores*/
 
   margin: auto
@@ -168,6 +168,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* estilizando o card da contagem de transações */
+.card.classtransactions {
+  text-align: center;
+  padding-top: 2rem;
 }
 
 /* definindo o estilo dos valores em reais nos cards */
@@ -355,7 +361,8 @@ footer {
 
   #balance {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* divide uma fração pra cada card e deixa eles se ajustarem no espaço que tem */
-    gap: 2rem; /* e adiciona esse espaço entre os elementos. isso faz com que seja responsivo */
+    grid-template-columns: repeat(1, 0.5fr 1fr 1fr 1fr); /* remodelando os cards, agora são 4 e o 1º que conta as transações precisa pegar só metade do espaço dos demais */
+    /* divide uma fração pra cada card e deixa eles se ajustarem no espaço que tem */
+    gap: 1.5rem; /* e adiciona esse espaço entre os elementos. isso faz com que seja responsivo */
   }
 }
