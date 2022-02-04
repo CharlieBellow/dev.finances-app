@@ -172,6 +172,7 @@ header {
 
 .card.classtransactions {
   text-align: center;
+  padding-top: 2rem;
 }
 
 /* definindo o estilo dos valores em reais nos cards */

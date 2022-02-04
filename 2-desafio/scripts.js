@@ -115,6 +115,10 @@ const Transaction = {
 
     return Transaction.incomes() + Transaction.expenses();
     // coloca + pq o expense já tá com sinal negativo. 
+  },
+
+  count() {
+    return Transaction.all.length
   }
 }
 
@@ -165,14 +169,14 @@ const DOM = {
     return index
   },*/
 
-  innerHTMLCountTransaction() {
+  /*innerHTMLCountTransaction() {
     const transactionsIndex = Transaction.all.length;
     document
       .getElementById("idtransactions")
       .innerHTML = `<p id="idtransactions">${transactionsIndex}</p>`;
     console.log(transactionsIndex);
     return transactionsIndex;
-  },
+  },*/
 
   /*innerHTMLUpdateCountTransaction(index) {
     const transactionsIndex = index.length;
@@ -216,6 +220,10 @@ const DOM = {
     
     document.getElementById('totalDisplay')
       .innerHTML = Utils.formatCurrency(Transaction.total())
+    
+    document
+      .getElementById("idtransactions")
+      .innerHTML = Transaction.count();
   },
 
   clearTransactions() {
